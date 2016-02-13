@@ -13,6 +13,7 @@
 		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 
+    <h:outputStylesheet library="demo" name="css/demoCharts.css" />
 </h:head>
 
 <h:body>
@@ -22,6 +23,8 @@
 	<h:form id="chartForm">
 
 		<ch:chart type="line" widgetVar="mychart"
+		    showLegend="true"
+		    legendClickable="true"
 			model="#{chartController.lineModel}"
 			styleClass="ct-minor-third">
 			<p:ajax event="itemSelect" 

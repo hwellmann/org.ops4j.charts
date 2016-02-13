@@ -31,7 +31,7 @@
             var options = {
                 clickable : this.cfg.legendClickable != false
             };
-            legend.call(this, options);
+            createLegend.call(this, options);
         }
     }
 
@@ -68,33 +68,10 @@
         });
     }
 
-    function legend(options) {
+    function createLegend(options) {
 
-        var options = Chartist.extend({}, defaultOptions, options);
         var $chart = this.jq;
         var chart = this.chart;
-
-        var existingLegendElement = chart.container.querySelector('.ct-legend');
-        if (existingLegendElement) {
-            // Clear legend if already existing.
-            existingLegendElement.remove();
-        }
-
-        // Set a unique className for each series so that when a series is
-        // removed,
-        // the other series still have the same color.
-        if (options.clickable) {
-            chart.data.series.forEach(function(series, seriesIndex) {
-                if (typeof series !== 'object') {
-                    series = {
-                        data : series
-                    };
-                }
-
-                series.className = series.className || chart.options.classNames.series + '-'
-                        + Chartist.alphaNumerate(seriesIndex);
-            });
-        }
 
         var legendElement = document.createElement('ul');
         legendElement.className = 'ct-legend';
@@ -105,19 +82,16 @@
             legendElement.classList.add(options.className);
         }
 
-        var removedSeries = [], originalSeries = chart.data.series.slice(0);
-
         // Get the right array to use for generating the legend.
         var legendNames = chart.data.series;
         if (chart instanceof Chartist.Pie) {
             legendNames = chart.data.labels;
         }
-        legendNames = options.legendNames || legendNames;
 
         // Loop through all legends to set each name in a list item.
         legendNames.forEach(function(legend, i) {
             var li = document.createElement('li');
-            li.className = 'ct-series-' + i;
+            li.className = 'ct-legend-' + Chartist.alphaNumerate(i);
             li.setAttribute('data-legend', i);
             li.textContent = legend.name || legend;
             legendElement.appendChild(li);
@@ -125,11 +99,12 @@
         chart.container.appendChild(legendElement);
 
         if (options.clickable) {
-            legendElement.addEventListener('click', function(e) {
-                var li = e.target;
-                if (li.parentNode !== legendElement || !li.hasAttribute('data-legend'))
+            legendElement.addEventListener('click', function(event) {
+                var li = event.target;
+                if (li.parentNode !== legendElement || !li.hasAttribute('data-legend')) {
                     return;
-                e.preventDefault();
+                }
+                event.preventDefault();
 
                 var seriesIndex = parseInt(li.getAttribute('data-legend'));
                 var seriesClassName = chart.options.classNames.series + '-'
@@ -149,7 +124,6 @@
                         li.classList.add('inactive');
                     }
                 }
-
             });
         }
     }

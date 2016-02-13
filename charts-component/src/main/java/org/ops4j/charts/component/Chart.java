@@ -96,7 +96,7 @@ public class Chart extends UIComponentBase implements org.primefaces.component.a
         getStateHelper().put(PropertyKeys.tooltipBuilder, _builder);
     }
 
-    public java.lang.Boolean getShowLegend() {
+    public java.lang.Boolean isShowLegend() {
         return (java.lang.Boolean) getStateHelper().eval(PropertyKeys.showLegend, null);
     }
 
@@ -104,7 +104,7 @@ public class Chart extends UIComponentBase implements org.primefaces.component.a
         getStateHelper().put(PropertyKeys.showLegend, _showLegend);
     }
 
-    public java.lang.Boolean getLegendClickable() {
+    public java.lang.Boolean isLegendClickable() {
         return (java.lang.Boolean) getStateHelper().eval(PropertyKeys.legendClickable, null);
     }
 

@@ -75,6 +75,13 @@
             <required>false</required>
             <type>java.lang.Boolean</type>
         </attribute>
+        <attribute>
+            <description><![CDATA[Specifies if legend is clickable. If true, clicking on an entry will 
+            toggle visibility of the corresponding series or slice.]]></description>
+            <name>legendClickable</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
     </tag>
 
 </facelet-taglib>

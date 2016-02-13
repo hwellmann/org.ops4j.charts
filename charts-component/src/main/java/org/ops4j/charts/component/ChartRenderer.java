@@ -81,12 +81,12 @@ public class ChartRenderer extends CoreRenderer {
         if (chart.getTooltipBuilder() != null) {
             writer.write(",tooltipBuilder:" + chart.getTooltipBuilder());
         }
-        if (chart.getShowLegend() != null) {
-            writer.write(",showLegend:" + chart.getShowLegend());
+        if (chart.isShowLegend() != null) {
+            writer.write(",showLegend:" + chart.isShowLegend());
         }
 
-        if (chart.getLegendClickable() != null) {
-            writer.write(",legendClickable:" + chart.getLegendClickable());
+        if (chart.isLegendClickable() != null) {
+            writer.write(",legendClickable:" + chart.isLegendClickable());
         }
 
         chartistRenderer.render(context, chart);
