@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+	<component>
+		<component-type>org.ops4j.charts.component.Chart</component-type>
+		<component-class>org.ops4j.charts.component.Chart</component-class>
+	</component>
+
+	<render-kit>
+		<renderer>
+			<component-family>org.ops4j.charts</component-family>
+			<renderer-type>org.ops4j.charts.component.ChartRenderer</renderer-type>
+			<renderer-class>org.ops4j.charts.component.ChartRenderer</renderer-class>
+		</renderer>
+	</render-kit>
+</faces-config>
