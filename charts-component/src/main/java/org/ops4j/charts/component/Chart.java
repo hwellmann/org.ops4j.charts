@@ -16,10 +16,11 @@ import javax.faces.event.FacesEvent;
 import org.ops4j.charts.component.model.ChartModel;
 import org.primefaces.event.ItemSelectEvent;
 
-@ResourceDependencies({ @ResourceDependency(library = "primefaces", name = "jquery/jquery.js"),
+@ResourceDependencies({
+    @ResourceDependency(library = "primefaces", name = "jquery/jquery.js"),
     @ResourceDependency(library = "primefaces", name = "primefaces.js"),
-    @ResourceDependency(library = "charts", name = "chartist/chartist.min.css"),
-    @ResourceDependency(library = "charts", name = "chartist/chartist.min.js"),
+    @ResourceDependency(library = "charts", name = "chartist/chartist#{ch:min()}.css"),
+    @ResourceDependency(library = "charts", name = "chartist/chartist#{ch:min()}.js"),
     @ResourceDependency(library = "charts", name = "charts.css"),
     @ResourceDependency(library = "charts", name = "charts.js") })
 public class Chart extends UIComponentBase implements org.primefaces.component.api.Widget,

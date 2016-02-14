@@ -73,7 +73,6 @@ public class LineRenderer extends AbstractChartRenderer {
         super.encodeOptions(context, chart);
 
         ResponseWriter writer = context.getResponseWriter();
-        ChartModel model = (ChartModel) chart.getModel();
         writer.write(",options:{");
 
         writer.write("}");
