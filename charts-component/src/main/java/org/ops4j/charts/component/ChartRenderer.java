@@ -77,9 +77,11 @@ public class ChartRenderer extends CoreRenderer {
         writer.write("ops4j.Charts.cw('Chart','" + chart.resolveWidgetVar() + "',{");
         writer.write("id:'" + clientId + "'");
         writer.write(",type:'" + type + "'");
-        //writer.write(",showTooltip:" + chart.getModel().isShowTooltip());
         if (chart.getTooltipBuilder() != null) {
             writer.write(",tooltipBuilder:" + chart.getTooltipBuilder());
+        }
+        if (chart.isShowTooltip() != null) {
+            writer.write(",showTooltip:" + chart.isShowTooltip());
         }
         if (chart.isShowLegend() != null) {
             writer.write(",showLegend:" + chart.isShowLegend());

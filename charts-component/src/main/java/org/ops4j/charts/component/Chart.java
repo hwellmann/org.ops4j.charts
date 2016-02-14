@@ -20,6 +20,7 @@ import org.primefaces.event.ItemSelectEvent;
     @ResourceDependency(library = "primefaces", name = "primefaces.js"),
     @ResourceDependency(library = "charts", name = "chartist/chartist.min.css"),
     @ResourceDependency(library = "charts", name = "chartist/chartist.min.js"),
+    @ResourceDependency(library = "charts", name = "charts.css"),
     @ResourceDependency(library = "charts", name = "charts.js") })
 public class Chart extends UIComponentBase implements org.primefaces.component.api.Widget,
     javax.faces.component.behavior.ClientBehaviorHolder {
@@ -33,7 +34,7 @@ public class Chart extends UIComponentBase implements org.primefaces.component.a
 
     protected enum PropertyKeys {
 
-        widgetVar, type, model, style, styleClass, tooltipBuilder, showLegend, legendClickable;
+        widgetVar, type, model, style, styleClass, tooltipBuilder, showTooltip, showLegend, legendClickable;
 
     }
 
@@ -94,6 +95,14 @@ public class Chart extends UIComponentBase implements org.primefaces.component.a
 
     public void setTooltipBuilder(java.lang.String _builder) {
         getStateHelper().put(PropertyKeys.tooltipBuilder, _builder);
+    }
+
+    public java.lang.Boolean isShowTooltip() {
+        return (java.lang.Boolean) getStateHelper().eval(PropertyKeys.showTooltip, null);
+    }
+
+    public void setShowTooltip(java.lang.Boolean _showTooltip) {
+        getStateHelper().put(PropertyKeys.showTooltip, _showTooltip);
     }
 
     public java.lang.Boolean isShowLegend() {

@@ -14,6 +14,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 
     <h:outputStylesheet library="demo" name="css/demoCharts.css" />
+    <h:outputScript library="demo" name="js/demoCharts.js" target="body" />
 </h:head>
 
 <h:body>
@@ -25,6 +26,8 @@
 		<ch:chart type="line" widgetVar="mychart"
 		    showLegend="true"
 		    legendClickable="true"
+		    showTooltip="true"
+		    tooltipBuilder="buildTooltip"
 			model="#{chartController.lineModel}"
 			styleClass="ct-minor-third">
 			<p:ajax event="itemSelect" 
