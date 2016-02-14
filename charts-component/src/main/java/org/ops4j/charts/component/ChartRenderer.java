@@ -26,6 +26,7 @@ public class ChartRenderer extends CoreRenderer {
     static {
         CHART_RENDERERS = new HashMap<String, AbstractChartRenderer>();
         CHART_RENDERERS.put(TYPE_LINE, new LineRenderer());
+        CHART_RENDERERS.put(TYPE_PIE, new PieRenderer());
     }
 
     @Override

@@ -166,11 +166,11 @@
                     });
                 }
                 else if (this.type == 'Pie') {
-                    this.jq.on('click', '.ct-slice', function(event) {
-                        var element = jQuery(this).parent();
-                        var reverseIndex = element.parent().children().length
-                                - (element.index() + 1);
-                        $this.invokeItemSelectBehavior(event, reverseIndex, reverseIndex)
+                    var slice = this.jq.find('.ct-slice-pie');
+                    this.jq.on('click', '.ct-slice-pie', function(event) {
+                        var element = $(this).parent();
+                        var reverseIndex = element.parent().children().length - 2 - element.index();
+                        $this.invokeItemSelectBehavior(event, reverseIndex, 0);
                     });
                 }
 

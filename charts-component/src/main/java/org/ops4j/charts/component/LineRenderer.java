@@ -2,8 +2,6 @@ package org.ops4j.charts.component;
 
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -14,18 +12,10 @@ import org.primefaces.util.ComponentUtils;
 
 public class LineRenderer extends AbstractChartRenderer {
 
-    private static final Logger logger = Logger.getLogger(LineRenderer.class.getName());
-
     @Override
     protected void encodeData(FacesContext context, Chart chart) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
-        ChartModel model = (ChartModel) chart.getModel();
-
-        if (model.getLabels().isEmpty()) {
-            logger.log(Level.SEVERE,
-                "Make sure to set the required lables for LineChart, otherwise the chart won't render");
-            return;
-        }
+        ChartModel model = chart.getModel();
         writer.write(",data:{labels: [");
 
         for (Iterator<Object> it = model.getLabels().iterator(); it.hasNext();) {

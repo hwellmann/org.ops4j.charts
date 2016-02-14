@@ -2,6 +2,7 @@ package org.ops4j.charts.component.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ChartModel implements Serializable {
@@ -30,6 +31,18 @@ public class ChartModel implements Serializable {
 
     public void addLabel(String label) {
         labels.add(label);
+    }
+
+    public void addSeries(String seriesName, Number... data) {
+        Series s = new Series(seriesName);
+        s.setData(Arrays.asList(data));
+        series.add(s);
+    }
+
+    public void addSeries(Number... data) {
+        Series s = new Series();
+        s.setData(Arrays.asList(data));
+        series.add(s);
     }
 
 
